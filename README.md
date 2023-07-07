@@ -72,7 +72,7 @@ To execute this app<br/>
     docker-compose up
 
 ## Endpoint List
-### GET http://localhost:8080/tasks/healf
+### GET http://localhost:8080/
 Hit the following endpoint to get a simple string to check the app
 **Response**:
 ```json

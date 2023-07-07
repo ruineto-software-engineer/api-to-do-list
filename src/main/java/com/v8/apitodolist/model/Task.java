@@ -1,5 +1,6 @@
 package com.v8.apitodolist.model;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,8 +21,14 @@ public class Task implements Serializable {
     @Id
     @Indexed
     private Integer id;
+
+    @NotBlank
     private String title;
+
+    @NotBlank
     private String description;
+
+    @NotBlank
     private String status;
 
 }
