@@ -71,6 +71,9 @@ To execute this app<br/>
   
     docker-compose up
 
+## Documentation
+Hit the url http://localhost:8080/swagger-ui/index.html with server up, to go the swagger doc.
+
 ## Endpoint List
 ### GET http://localhost:8080/
 Hit the following endpoint to get a simple string to check the app
