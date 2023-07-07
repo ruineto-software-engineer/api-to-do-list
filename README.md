@@ -3,7 +3,8 @@ Spring boot app to do list (docker container) connecting to redis (docker contai
 
 This is a simple spring-boot app that connects to redis to store and retrive the data.
 Here Redis is used both as database and as well as caching system.
-## Step1 Create spring-boot-app
+
+## Step 1 Create spring-boot-app
 Create a spring-boot app with `spring-boot-starter-web`, `spring-boot-starter-data-redis`, `jedis`, `lombok` and others dependencies.
 **Jedis** is the java client used to connect to redis instance.
 
@@ -34,7 +35,7 @@ public RedisTemplate<String, Object> redisTemplate(){
  ```
 Use this redisTemplate to do all the hashOperations like put, get etc
 
-## Step2 Create a Dockerfile for spring-boot-app
+## Step 2 Create a Dockerfile for spring-boot-app
 Create a Dockerfile as shown below
  ```
 FROM openjdk
@@ -44,7 +45,7 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "spring-boot-redis.jar"]
  ```
 
-## Step3 Create a docker-compose file
+## Step 3 Create a docker-compose file
 Create a docker-compose.yml file as shown below. Here the app is binded to redis instance
  ```yml
  version: '3'
@@ -70,17 +71,74 @@ To execute this app<br/>
   
     docker-compose up
 
+## Endpoint List
+### GET http://localhost:8080/tasks/healf
+Hit the following endpoint to get a simple string to check the app
+**Response**:
+```json
+string
+```
+
+### POST http://localhost:8080/tasks/
 Hit the following endpoint to post a record
-POST http://localhost:8085/api/employee
+**Payload**:
 ```json
 {
-   "id": 1000,
-   "firstName": "Chetan",
-   "lastName": "Kamadinni"
+  "id": 0,
+  "title": "string",
+  "description": "string",
+  "status": "string"
 }
 ```
-To get the record do
-GET http://localhost:8085/api/employee/1000
+
+### GET http://localhost:8080/tasks/
+Hit the following endpoint to get all tasks
+**Response**:
+```json
+[
+  {
+    "id": 0,
+    "title": "string",
+    "description": "string",
+    "status": "string"
+  }
+]
+```
+
+### GET http://localhost:8080/tasks/{id}
+Hit the following endpoint to get all tasks
+**Response**:
+```json
+{
+  "id": 0,
+  "title": "string",
+  "description": "string",
+  "status": "string"
+}
+```
+
+### PUT http://localhost:8080/tasks/{id}
+Hit the following endpoint to get all tasks
+**Payload**:
+```json
+{
+  "id": 0,
+  "title": "string",
+  "description": "string",
+  "status": "string"
+}
+```
+**Response**:
+```json
+string
+```
+
+### DELETE http://localhost:8080/tasks/{id}
+Hit the following endpoint to get all tasks
+**Response**:
+```json
+string
+```
 
 ## Useful docker-compose commands
 - `docker-compose build`
