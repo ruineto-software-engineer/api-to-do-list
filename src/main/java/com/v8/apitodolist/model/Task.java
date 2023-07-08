@@ -33,7 +33,6 @@ public class Task implements Serializable {
     @NotBlank
     private String description;
 
-    @NotBlank
     @Enumerated(EnumType.STRING)
     private TaskEnum status;
 
