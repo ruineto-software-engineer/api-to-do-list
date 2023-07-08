@@ -1,5 +1,9 @@
 package com.v8.apitodolist.model;
 
+import com.v8.apitodolist.domain.TaskEnum;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +24,7 @@ public class Task implements Serializable {
 
     @Id
     @Indexed
+    @Min(0)
     private Integer id;
 
     @NotBlank
@@ -29,6 +34,7 @@ public class Task implements Serializable {
     private String description;
 
     @NotBlank
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private TaskEnum status;
 
 }
