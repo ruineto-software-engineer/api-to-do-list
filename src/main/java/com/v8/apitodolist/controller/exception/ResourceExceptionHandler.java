@@ -45,7 +45,7 @@ public class ResourceExceptionHandler {
     }
 
     @ExceptionHandler(EntityBadRequestException.class)
-    public ResponseEntity<StandardError> entityConflictException(
+    public ResponseEntity<StandardError> entityBadRequestException(
             EntityBadRequestException entityBadRequestException, HttpServletRequest request
     ) {
         StandardError standardError = new StandardError();
